@@ -1,17 +1,18 @@
-package com.sauloaguiar.githubcorecommitter
+package com.sauloaguiar.githubcorecommitter.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.adapter.BarGraphAdapter
 import kotlinx.android.synthetic.main.fragment_graph_committer.*
 
 /**
  * A placeholder fragment containing a simple view.
  */
-class MainActivityFragment : Fragment() {
+class CommitterFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

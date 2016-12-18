@@ -16,7 +16,11 @@ class GithubUser(
         val admin: Boolean,
 
         val type: String
-)
+) {
+    override fun toString(): String {
+        return "GithubUser(website='$website', imageUrl='$imageUrl', contributions=$contributions, admin=$admin, type='$type')"
+    }
+}
 
 class GithubRepo(
         val name: String,
@@ -28,8 +32,15 @@ class GithubRepo(
         val description: String,
         @SerializedName("default_branch")
         val defaultBranch: String,
+        @SerializedName("owner")
         val user: GithubUser
-)
+
+
+) {
+    override fun toString(): String {
+        return "GithubRepo(name='$name', website='$website', user=$user)"
+    }
+}
 
 class GithubRepoWrapper(
         @SerializedName("total_count")
@@ -39,5 +50,10 @@ class GithubRepoWrapper(
         val incompleteResults: Boolean,
         @SerializedName("items")
         val repos: List<GithubRepo>
-)
+
+) {
+    override fun toString(): String {
+        return "GithubRepoWrapper(totalCount=$totalCount, incompleteResults=$incompleteResults, repos=$repos)"
+    }
+}
 

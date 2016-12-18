@@ -13,7 +13,7 @@ import retrofit2.http.Query
 
 interface GithubApi {
     @GET("/search/repositories")
-    fun fetchRepos(@Query("stars") stars: String): Call<GithubRepoWrapper>
+    fun fetchRepos(@Query("q") stars: String): Call<GithubRepoWrapper>
 
     @GET("/repos/{full_name}/contributors")
     fun fetchContributors(@Path("full_name") repo: String): Call<List<GithubUser>>

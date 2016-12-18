@@ -10,13 +10,23 @@ class GithubUser(
         val website: String,
         @SerializedName("avatar_url")
         val imageUrl: String,
-
+        @SerializedName("login")
+        val username: String,
         val contributions: Int,
         @SerializedName("site_admin")
         val admin: Boolean,
-
         val type: String
-) {
+) : Comparable<GithubUser> {
+    override fun compareTo(other: GithubUser): Int {
+        if(this.contributions > other.contributions) {
+            return 1
+        } else if (this.contributions < other.contributions) {
+            return -1
+        } else {
+            return 0
+        }
+    }
+
     override fun toString(): String {
         return "GithubUser(website='$website', imageUrl='$imageUrl', contributions=$contributions, admin=$admin, type='$type')"
     }
@@ -33,9 +43,8 @@ class GithubRepo(
         @SerializedName("default_branch")
         val defaultBranch: String,
         @SerializedName("owner")
-        val user: GithubUser
-
-
+        val user: GithubUser,
+        val full_name: String
 ) {
     override fun toString(): String {
         return "GithubRepo(name='$name', website='$website', user=$user)"

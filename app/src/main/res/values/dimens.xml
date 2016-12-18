@@ -10,5 +10,6 @@
     <dimen name="grid_line_space">15dp</dimen>
     <dimen name="paddingStart">16dp</dimen>
     <dimen name="ringDiameter">10dp</dimen>
+    <dimen name="paddingEnd">16dp</dimen>
 
 </resources>

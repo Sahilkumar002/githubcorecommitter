@@ -11,11 +11,11 @@ import kotlinx.android.synthetic.main.repo_recycler_item.view.*
 /**
  * Created by sauloaguiar on 12/17/16.
  */
-class ReposRecyclerAdapter(val repos: List<GithubRepo>) : RecyclerView.Adapter<ReposRecyclerAdapter.ViewHolder>() {
+class ReposRecyclerAdapter(val repos: List<GithubRepo>, val listener: (GithubRepo) -> Unit ) : RecyclerView.Adapter<ReposRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent?.context).inflate(R.layout.repo_recycler_item, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, listener)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -26,11 +26,12 @@ class ReposRecyclerAdapter(val repos: List<GithubRepo>) : RecyclerView.Adapter<R
         return repos.size
     }
 
-    class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View?, val itemClick: (GithubRepo) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bindRepo(repo: GithubRepo) {
             with(repo) {
                itemView.repoName.text = repo.name
                itemView.repoDescription.text = repo.description
+                itemView.setOnClickListener { itemClick(this) }
             }
         }
     }

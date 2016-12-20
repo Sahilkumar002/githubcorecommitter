@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.model.GithubRepo
-import kotlinx.android.synthetic.main.repo_recycler_item.view.*
+import kotlinx.android.synthetic.main.recycler_item_repo.view.*
 
 /**
  * Created by sauloaguiar on 12/17/16.
@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.repo_recycler_item.view.*
 class ReposRecyclerAdapter(val repos: List<GithubRepo>, val listener: (GithubRepo) -> Unit ) : RecyclerView.Adapter<ReposRecyclerAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.repo_recycler_item, parent, false)
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.recycler_item_repo, parent, false)
         return ViewHolder(view, listener)
     }
 

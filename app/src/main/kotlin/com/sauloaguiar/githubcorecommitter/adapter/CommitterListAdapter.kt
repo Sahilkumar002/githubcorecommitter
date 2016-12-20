@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.model.GithubUser
-import kotlinx.android.synthetic.main.committer_recycler_item.view.*
+import kotlinx.android.synthetic.main.recycler_item_committer.view.*
 /**
  * Created by sauloaguiar on 12/18/16.
  */
@@ -17,7 +17,7 @@ class CommitterListAdapter(val committers: List<GithubUser>, val listener: (Gith
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): CommitterListAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.committer_recycler_item, parent, false)
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.recycler_item_committer, parent, false)
         return CommitterListAdapter.ViewHolder(view, listener)
     }
 

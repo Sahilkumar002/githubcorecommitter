@@ -38,7 +38,7 @@ class BarGraphAdapter(var values: List<GithubUser>) : BaseGraphBarAdapter<BarGra
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): BarGraphAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.graph_line, parent, false)
+        val view = LayoutInflater.from(parent?.context).inflate(R.layout.recycler_item_graph, parent, false)
         return ViewHolder(view)
     }
 

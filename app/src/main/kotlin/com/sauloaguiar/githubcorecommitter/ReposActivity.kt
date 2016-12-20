@@ -20,5 +20,4 @@ class ReposActivity : AppCompatActivity() {
                     .setAction("Action", null).show()
         }
     }
-
 }

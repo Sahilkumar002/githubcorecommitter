@@ -1,5 +1,6 @@
 package com.sauloaguiar.githubcorecommitter.adapter
 
+import android.animation.ValueAnimator
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -26,15 +27,24 @@ class BarGraphAdapter(var values: List<GithubUser>) : BaseGraphBarAdapter<BarGra
     }
 
     override fun onBindViewHolder(holder: BarGraphAdapter.ViewHolder, position: Int) {
-        val value = values[position]
-        holder.value.text = value.contributions.toString()
+        val githubUser = values[position]
+        holder.value.text = githubUser.contributions.toString()
 
-        val valueHeight = getItemBarHeight(value.contributions.toDouble())
+        val valueHeight = getItemBarHeight(githubUser.contributions.toDouble())
         holder.line?.layoutParams?.height = valueHeight
+
+        val valueAnimator = ValueAnimator.ofInt(10, valueHeight)
+        valueAnimator.duration = 2500
+        valueAnimator.addUpdateListener { animation ->
+            val value = animation.animatedValue as Int
+            holder.line?.layoutParams?.height = value
+            holder.line?.requestLayout()
+        }
+        valueAnimator.start()
 
         holder.photo.setImageResource(R.drawable.womam_1)
         Glide.with(holder.itemView.context)
-                .load(value.imageUrl)
+                .load(githubUser.imageUrl)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .crossFade()
                 .error(R.drawable.github)

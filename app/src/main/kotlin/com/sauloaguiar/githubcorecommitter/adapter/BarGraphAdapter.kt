@@ -36,6 +36,8 @@ class BarGraphAdapter(var values: List<GithubUser>) : BaseGraphBarAdapter<BarGra
         Glide.with(holder.itemView.context)
                 .load(value.imageUrl)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .crossFade()
+                .error(R.drawable.github)
                 .into(holder.photo)
     }
 

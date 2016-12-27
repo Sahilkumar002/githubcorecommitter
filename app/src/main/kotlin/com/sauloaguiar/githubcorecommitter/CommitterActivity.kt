@@ -16,7 +16,7 @@ class CommitterActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
 
         // update icon
-        toolbar.setNavigationIcon(R.drawable.back)
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_white_18dp)
 
         toolbar.title = ""
 

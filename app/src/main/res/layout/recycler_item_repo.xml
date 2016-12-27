@@ -11,7 +11,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Project Name"
-        android:layout_marginStart="10dp"/>
+        android:layout_marginStart="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/repoDescription"
@@ -20,6 +22,28 @@
         android:paddingTop="8dp"
         android:text="Project Description"
         android:layout_below="@id/repoName"
-        android:layout_alignStart="@+id/repoName" />
+        android:layout_alignStart="@+id/repoName"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif"
+        android:typeface="serif" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/repoStars"
+        android:paddingEnd="8dp"
+        android:text="1245"
+        android:textSize="18sp"
+        android:layout_toStartOf="@+id/starImageView"
+        android:layout_marginEnd="10dp"
+        android:layout_above="@+id/repoDescription" />
+
+    <ImageView
+        android:src="@drawable/ic_star_rate_black_18dp"
+        android:id="@+id/starImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -44,7 +44,9 @@ class GithubRepo(
         val defaultBranch: String,
         @SerializedName("owner")
         val user: GithubUser,
-        val full_name: String
+        val full_name: String,
+        @SerializedName("stargazers_count")
+        val stars: Int
 ) {
     override fun toString(): String {
         return "GithubRepo(name='$name', website='$website', user=$user)"

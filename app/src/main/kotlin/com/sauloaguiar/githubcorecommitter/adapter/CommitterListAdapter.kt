@@ -31,16 +31,13 @@ class CommitterListAdapter(val committers: List<GithubUser>, val listener: (Gith
     class ViewHolder(itemView: View?, val itemClick: (GithubUser) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bindCommitter(committer: GithubUser) {
             with(committer) {
-
                 itemView.committerName.text = committer.username
                 itemView.committerCommits.text = committer.contributions.toString() + " commits"
-
-                if (committer.admin) {
-                    itemView.committerAdmin.visibility = View.VISIBLE
-                }
                 Glide.with(itemView.context)
                         .load(committer.imageUrl)
                         .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .error(R.drawable.github)
+                        .crossFade()
                         .into(itemView.committerPhoto)
                 itemView.setOnClickListener { itemClick(this) }
             }

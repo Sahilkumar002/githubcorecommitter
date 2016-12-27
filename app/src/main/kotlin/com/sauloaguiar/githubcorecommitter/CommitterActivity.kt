@@ -1,12 +1,12 @@
 package com.sauloaguiar.githubcorecommitter
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_commiters.*
 
 class CommitterActivity : AppCompatActivity() {
 
@@ -14,18 +14,33 @@ class CommitterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_commiters)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
+
+        // update icon
+        toolbar.setNavigationIcon(R.drawable.back)
+
+        toolbar.title = ""
+
+        Toast.makeText(applicationContext, extractProjectName(), Toast.LENGTH_SHORT).show()
+        toolbar_title.text = extractProjectName()
         setSupportActionBar(toolbar)
 
-        val fab = findViewById(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        val ab = supportActionBar
+        ab!!.setDisplayShowHomeEnabled(true)
+        ab!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun extractProjectName(): String {
+        return intent.extras.getString("full_name").split("/")[1] ?: getString(R.string.title_activity_projects)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
         return true
     }
 

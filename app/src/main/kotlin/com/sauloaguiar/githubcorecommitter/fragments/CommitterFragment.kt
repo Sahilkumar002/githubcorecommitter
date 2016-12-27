@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,11 @@ import android.view.Window
 import android.widget.Toast
 import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.adapter.BarGraphAdapter
+import com.sauloaguiar.githubcorecommitter.adapter.CommitterListAdapter
 import com.sauloaguiar.githubcorecommitter.network.GithubDataManager
 import kotlinx.android.synthetic.main.fragment_graph_committer.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
-import com.sauloaguiar.githubcorecommitter.adapter.CommitterListAdapter
 
 /**
  * A placeholder fragment containing a simple view.
@@ -34,7 +33,6 @@ class CommitterFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         fetchContributorsData(activity.intent.extras.getString("full_name") ?: "error")
-        Toast.makeText(context, activity.intent.extras.getString("full_name") ?: "error", Toast.LENGTH_SHORT).show()
     }
 
     fun showLoadingDialog() {

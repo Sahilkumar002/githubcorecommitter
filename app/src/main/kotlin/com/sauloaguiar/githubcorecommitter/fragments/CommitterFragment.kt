@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -64,12 +65,12 @@ class CommitterFragment : Fragment() {
                         { list ->
                             dismissDialog()
                             displayViews()
-                            //Log.d("com.sauloaguiar.githubcorecommitter", list.toString())
                             graph.adapter = BarGraphAdapter(list)
 
                             committers.layoutManager = LinearLayoutManager(context)
                             committers.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
                             committers.adapter = CommitterListAdapter(list, { committer ->
+                                Log.d("com.sauloaguiar.committer", committer.toString())
                                 Toast.makeText(context, committer.username ?: "error", Toast.LENGTH_SHORT).show()
                             })
                         },

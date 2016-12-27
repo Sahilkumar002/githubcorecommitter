@@ -4,6 +4,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.model.GithubUser
 import kotlinx.android.synthetic.main.recycler_item_committer.view.*
@@ -25,11 +27,21 @@ class CommitterListAdapter(val committers: List<GithubUser>, val listener: (Gith
         holder.bindCommitter(committers[position])
     }
 
+
     class ViewHolder(itemView: View?, val itemClick: (GithubUser) -> Unit) : RecyclerView.ViewHolder(itemView) {
         fun bindCommitter(committer: GithubUser) {
             with(committer) {
+
                 itemView.committerName.text = committer.username
-                itemView.committerCommits.text = committer.contributions.toString()
+                itemView.committerCommits.text = committer.contributions.toString() + " commits"
+
+                if (committer.admin) {
+                    itemView.committerAdmin.visibility = View.VISIBLE
+                }
+                Glide.with(itemView.context)
+                        .load(committer.imageUrl)
+                        .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                        .into(itemView.committerPhoto)
                 itemView.setOnClickListener { itemClick(this) }
             }
         }

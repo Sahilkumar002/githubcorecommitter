@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.com.renanbandeira.bargraphlib.adapter.BaseGraphBarAdapter
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.model.GithubUser
 import de.hdodenhof.circleimageview.CircleImageView
@@ -31,6 +33,10 @@ class BarGraphAdapter(var values: List<GithubUser>) : BaseGraphBarAdapter<BarGra
         holder.line?.layoutParams?.height = valueHeight
 
         holder.photo.setImageResource(R.drawable.womam_1)
+        Glide.with(holder.itemView.context)
+                .load(value.imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into(holder.photo)
     }
 
     override fun getItemCount(): Int {

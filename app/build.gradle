@@ -52,6 +52,9 @@ dependencies {
     // text drawable image view
     compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
 
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+
 }
 repositories {
     mavenCentral()

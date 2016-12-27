@@ -25,8 +25,8 @@ class CommitterActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         val ab = supportActionBar
-        ab!!.setDisplayShowHomeEnabled(true)
-        ab!!.setDisplayHomeAsUpEnabled(true)
+        ab?.setDisplayShowHomeEnabled(true)
+        ab?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun extractProjectName(): String {

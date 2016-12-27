@@ -31,7 +31,7 @@ class ReposRecyclerAdapter(val repos: List<GithubRepo>, val listener: (GithubRep
             with(repo) {
                itemView.repoName.text = repo.name
                itemView.repoDescription.text = repo.description
-                itemView.setOnClickListener { itemClick(this) }
+               itemView.setOnClickListener { itemClick(this) }
             }
         }
     }

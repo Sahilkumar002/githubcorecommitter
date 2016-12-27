@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+    xmlns:markdown="http://schemas.android.com/apk/res-auto">
 
     <TextView
         android:id="@+id/repoName"
@@ -16,9 +17,9 @@
         android:id="@+id/repoDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:text="Project Description"
         android:layout_below="@id/repoName"
-        android:paddingTop="5dp"
-        android:layout_alignParentStart="true"
-        android:text="Project Description"/>
+        android:layout_alignStart="@+id/repoName" />
 
 </RelativeLayout>

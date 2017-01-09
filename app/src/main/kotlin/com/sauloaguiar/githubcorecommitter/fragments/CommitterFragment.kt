@@ -15,7 +15,7 @@ import com.sauloaguiar.githubcorecommitter.R
 import com.sauloaguiar.githubcorecommitter.adapter.BarGraphAdapter
 import com.sauloaguiar.githubcorecommitter.adapter.CommitterListAdapter
 import com.sauloaguiar.githubcorecommitter.network.GithubDataManager
-import kotlinx.android.synthetic.main.fragment_graph_committer.*
+import kotlinx.android.synthetic.main.fragment_committers.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -28,7 +28,7 @@ class CommitterFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater!!.inflate(R.layout.fragment_graph_committer, container, false)
+        return inflater!!.inflate(R.layout.fragment_committers, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

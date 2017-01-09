@@ -11,9 +11,20 @@
     tools:context="com.sauloaguiar.githubcorecommitter.fragments.CommitterFragment"
     >
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/repoScreenTitle"
+        android:text="Most Popular Repositories"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/reposRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/repoScreenTitle"/>
 
 </RelativeLayout>

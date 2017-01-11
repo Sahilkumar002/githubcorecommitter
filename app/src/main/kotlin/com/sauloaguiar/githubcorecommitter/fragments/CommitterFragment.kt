@@ -1,11 +1,12 @@
 package com.sauloaguiar.githubcorecommitter.fragments
 
 import android.app.Dialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,13 +71,18 @@ class CommitterFragment : Fragment() {
                             committers.layoutManager = LinearLayoutManager(context)
                             committers.addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
                             committers.adapter = CommitterListAdapter(list, { committer ->
-                                Log.d("com.sauloaguiar.committer", committer.toString())
-                                Toast.makeText(context, committer.username ?: "error", Toast.LENGTH_SHORT).show()
+                                openProfile("https://www.github.com/" + committer.username)
                             })
                         },
                         { error ->
                             dismissDialog()
                             Toast.makeText(context, error.message ?: "error", Toast.LENGTH_SHORT).show()
                         })
+    }
+
+    private fun openProfile(string: String?) {
+        val profile = Intent(Intent.ACTION_VIEW, Uri.parse(string))
+        profile.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(profile)
     }
 }

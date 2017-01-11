@@ -6,5 +6,8 @@
 
     <string name="repos_activity_title">Github Core Committer</string>
     <string name="action_about">About Developer</string>
+    <string name="linkedin_profile">https://www.linkedin.com/in/sauloaguiar</string>
+    <string name="github_profile">https://www.github.com/sauloaguiar</string>
+    <string name="twitter_profile">https://www.twitter.com/saulo_aguiar</string>
 
 </resources>

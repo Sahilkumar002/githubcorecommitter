@@ -9,5 +9,7 @@
     <string name="linkedin_profile">https://www.linkedin.com/in/sauloaguiar</string>
     <string name="github_profile">https://www.github.com/sauloaguiar</string>
     <string name="twitter_profile">https://www.twitter.com/saulo_aguiar</string>
+    <string name="developer_name">Saulo Aguiar</string>
+    <string name="developer_email">contact@sauloaguiar.com</string>
 
 </resources>

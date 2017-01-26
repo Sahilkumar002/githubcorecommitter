@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GithubCoreCommitter</string>
+    <string name="app_name">Github Core Committer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_projects">ProjectsActivity</string>
     <string name="title_activity_main">MainActivity</string>
